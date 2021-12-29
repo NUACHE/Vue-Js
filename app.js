@@ -11,29 +11,21 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        changeTitle(title) {
-            //  this.title = 'Words of radiance'
-            this.title = title
-        },
+
         toggleShowBooks() {
             this.showBooks = !this.showBooks
         },
-        handleEvent(e, data) {
 
-            console.log(e, e.type)
-            if (data) {
-                console.log(data)
-            }
-        },
-        handleMouseMove(e) {
-            this.x = e.offsetX
-            this.y = e.offsetY
-        },
         toggleFav(book) {
             book.isFav = !book.isFav
         }
 
     },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book) => book.isFav)
+        }
+    }
 
 })
 
