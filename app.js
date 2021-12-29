@@ -5,8 +5,8 @@ const app = Vue.createApp({
             showBooks: true,
             books: [
                 { title: 'name of the wind', author: 'patrick rothfuss', img: 'assets/1.jpg', isFav: true, },
-                { title: 'name of the wind', author: 'patrick rothfuss', img: 'assets/2.jpg', isFav: false, },
-                { title: 'name of the wind', author: 'patrick rothfuss', img: 'assets/3.jpg', isFav: true },
+                { title: 'the way of kings', author: 'brandon sanderson', img: 'assets/2.jpg', isFav: false, },
+                { title: 'the final empire', author: 'brandon sanderson', img: 'assets/3.jpg', isFav: true },
             ]
         }
     },
@@ -16,7 +16,6 @@ const app = Vue.createApp({
             this.title = title
         },
         toggleShowBooks() {
-
             this.showBooks = !this.showBooks
         },
         handleEvent(e, data) {
@@ -29,6 +28,9 @@ const app = Vue.createApp({
         handleMouseMove(e) {
             this.x = e.offsetX
             this.y = e.offsetY
+        },
+        toggleFav(book) {
+            book.isFav = !book.isFav
         }
 
     },

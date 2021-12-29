@@ -42,22 +42,25 @@
     <div id="app">
 
         <!--attribute binding-->
-        <a :href="url">best website ever</a>
-        <div v-if="showBooks">
-            <p>{{title}} - {{author}} - {{age}}</p>
-        </div>
+
+
+
+        <span v-if="showBooks">
+            <ul>
+                <li v-for="book in books" :class="{fav: book.isFav}" @click="toggleFav(book)">
+                    <img :src="book.img" :alt="book.title" height="100">
+                    <h3>{{book.title}}</h3>
+                    <h3>{{book.author}}</h3>
+                </li>
+            </ul>
+        </span>
 
 
         <button @click="toggleShowBooks">
             <span v-if="showBooks">
-                <ul>
-                    <li v-for="book in books" :class="{ fav: book.isFav  }">
-                        <img :src="book.img" :alt="book.title" height="100">
-                        <h3>{{book.title}}</h3>
-                        <h3>{{book.author}}</h3>
-                    </li>
-                </ul>
+                Hide Books
             </span>
+
             <span v-if="!showBooks">
                 Show Books
             </span>
