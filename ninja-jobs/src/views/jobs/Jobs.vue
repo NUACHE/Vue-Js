@@ -22,7 +22,6 @@ export default {
 
 }
 </script>
-
 <style>
 .job h2{
     background: #f4f4f4;
